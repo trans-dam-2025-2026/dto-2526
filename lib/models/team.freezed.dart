@@ -17,6 +17,7 @@ mixin _$Team {
   @DocumentIdField()
   String get id;
   String get title;
+  @FirestoreTimestampConverter()
   DateTime get startDate;
   List<String> get users;
   String? get picturePath;
@@ -72,7 +73,7 @@ abstract mixin class $TeamCopyWith<$Res> {
   $Res call(
       {@DocumentIdField() String id,
       String title,
-      DateTime startDate,
+      @FirestoreTimestampConverter() DateTime startDate,
       List<String> users,
       String? picturePath,
       List<String>? tags});
@@ -222,7 +223,7 @@ extension TeamPatterns on Team {
     TResult Function(
             @DocumentIdField() String id,
             String title,
-            DateTime startDate,
+            @FirestoreTimestampConverter() DateTime startDate,
             List<String> users,
             String? picturePath,
             List<String>? tags)?
@@ -257,7 +258,7 @@ extension TeamPatterns on Team {
     TResult Function(
             @DocumentIdField() String id,
             String title,
-            DateTime startDate,
+            @FirestoreTimestampConverter() DateTime startDate,
             List<String> users,
             String? picturePath,
             List<String>? tags)
@@ -290,7 +291,7 @@ extension TeamPatterns on Team {
     TResult? Function(
             @DocumentIdField() String id,
             String title,
-            DateTime startDate,
+            @FirestoreTimestampConverter() DateTime startDate,
             List<String> users,
             String? picturePath,
             List<String>? tags)?
@@ -313,7 +314,7 @@ class _Team implements Team {
   const _Team(
       {@DocumentIdField() required this.id,
       required this.title,
-      required this.startDate,
+      @FirestoreTimestampConverter() required this.startDate,
       required final List<String> users,
       this.picturePath,
       final List<String>? tags})
@@ -327,6 +328,7 @@ class _Team implements Team {
   @override
   final String title;
   @override
+  @FirestoreTimestampConverter()
   final DateTime startDate;
   final List<String> _users;
   @override
@@ -404,7 +406,7 @@ abstract mixin class _$TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
   $Res call(
       {@DocumentIdField() String id,
       String title,
-      DateTime startDate,
+      @FirestoreTimestampConverter() DateTime startDate,
       List<String> users,
       String? picturePath,
       List<String>? tags});
